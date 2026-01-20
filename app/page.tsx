@@ -2,10 +2,9 @@
 
 export default function Home() {
   return (
-    <div>
-      <h1>Welcome to Commit</h1>
-      <p>Your productivity companion.</p>
-     
+    <div className="flex justify-center">
+      <h1 className="text-center">Welcome to Commit</h1>
+      <p>Your productivity companion. </p>
     </div>
   );
 }
