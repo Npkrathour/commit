@@ -169,3 +169,7 @@
 .home-slider .carousel.carousel-slider .control-arrow {
   display: none;
 }
+
+.home-slider p {
+  font-family: var(--font-oswald);
+}
