@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Nunito, Work_Sans } from "next/font/google";
+import { Nunito, Work_Sans, Inter } from "next/font/google";
 import "./globals.css";
 
 const nunito = Nunito({
@@ -9,6 +9,12 @@ const nunito = Nunito({
 
 const work = Work_Sans({
   variable: "--font-work-sans",
+  subsets: ["latin"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  weight: "600",
   subsets: ["latin"],
 });
 
@@ -24,7 +30,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${nunito.variable} ${work.variable} antialiased`}>
+      <body
+        className={`${nunito.variable} ${work.variable} ${inter.variable} antialiased`}
+      >
         {children}
       </body>
     </html>
