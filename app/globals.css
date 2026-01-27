@@ -127,3 +127,45 @@
 .bg-primary {
   background-color: #2590fe;
 }
+
+.home-slider .carousel.carousel-slider {
+  margin: 0;
+  position: relative;
+  overflow: visible !important;
+}
+
+.carousel .control-dots .dot.selected,
+.carousel .control-dots .dot:hover {
+  opacity: 1;
+  filter: alpha(opacity= 100);
+}
+.home-slider .carousel .control-dots .dot {
+  -o-transition: opacity 0.25s ease-in;
+  opacity: 0.3;
+  filter: alpha(opacity= 30);
+  cursor: pointer;
+  background: #fff;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  margin: 0 8px;
+  transition: opacity 0.25s ease-in;
+  display: inline-block;
+  box-shadow: 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.2);
+}
+.home-slider .carousel .control-dots {
+  text-align: center;
+  z-index: 1;
+  width: 100%;
+  margin: 10px 0;
+  padding: 0;
+  position: absolute;
+  bottom: -40px !important;
+}
+.home-slider .carousel .control-dots .dot {
+  border: 1px solid #2590fe;
+  background-color: #2590fe;
+}
+.home-slider .carousel.carousel-slider .control-arrow {
+  display: none;
+}

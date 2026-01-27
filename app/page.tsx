@@ -2,6 +2,8 @@ import Image from "next/image";
 import logo from "@/assets/logo.png";
 import { Dot } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import CarouselSlider from "@/components/layout/Carousel";
+
 const Login = () => {
   return (
     <>
@@ -22,7 +24,8 @@ const Login = () => {
           <h1 className="text-3xl flex items-center w-full justify-center font-bold text-center mt-6 text-gray-800">
             Say Hello <Dot className=" -ml-4 size-14 pt-2 text-blue-500" />
           </h1>
-          <div className="flex flex-col items-center px-10">
+          <CarouselSlider />
+          <div className="flex flex-col items-center px-10 mt-2">
             <Button
               size="lg"
               className="mt-8 bg-blue-400 text-white hover:bg-blue-500 px-6 py-3 rounded-md hover:shadow w-full"
