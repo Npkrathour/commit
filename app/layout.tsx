@@ -34,6 +34,7 @@ export default function RootLayout({
         className={`${nunito.variable} ${work.variable} ${inter.variable} antialiased`}
       >
         {children}
+        
       </body>
     </html>
   );

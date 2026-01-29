@@ -1,17 +1,25 @@
+"use client";
 import Image from "next/image";
 import logo from "@/assets/logo.png";
 import { Dot } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import CarouselSlider from "@/components/layout/Carousel";
+import { useRouter } from "next/navigation";
+import BackgroundDecor from "@/components/layout/BackgroundDecor";
 
 const Login = () => {
+  const router = useRouter();
+
+  const handleSignIn = () => {
+    router.push("/sign-in");
+  };
+
+  const handleSignUp = () => {
+    router.push("/sign-up");
+  };
   return (
     <>
-      <div className="w-full max-w-md mx-auto h-screen bg-white relative overflow-hidden border border-gray-300">
-        {/* Background shapes */}
-        <div className="absolute -top-20 -left-20 z-20 shadow-md w-60 h-56 bg-[#cce5ff] rounded-full"></div>
-        <div className="absolute -top-24 -right-14 z-10 w-94 h-80 bg-[#65b1ff] rounded-br-[40%] rounded-bl-[115%] shadow"></div>
-
+      <BackgroundDecor>
         {/* Content */}
         <div className="pt-52 mt-10 relative z-30">
           <Image
@@ -27,12 +35,14 @@ const Login = () => {
           <CarouselSlider />
           <div className="flex flex-col items-center px-10 mt-2">
             <Button
+              onClick={handleSignUp}
               size="lg"
               className="mt-8 bg-blue-400 text-white hover:bg-blue-500 px-6 py-3 rounded-md hover:shadow w-full"
             >
               Sign Up
             </Button>
             <Button
+              onClick={handleSignIn}
               size="lg"
               className="mt-8 border bg-transparent w-full border-blue-500 hover:shadow text-gray-600 hover:border-blue-600 hover:bg-transparent px-6 py-3 rounded-md "
             >
@@ -40,7 +50,7 @@ const Login = () => {
             </Button>
           </div>
         </div>
-      </div>
+      </BackgroundDecor>
     </>
   );
 };
