@@ -33,7 +33,7 @@ const Login = () => {
             Say Hello <Dot className=" -ml-4 size-14 pt-2 text-blue-500" />
           </h1>
           <CarouselSlider />
-          <div className="flex flex-col items-center px-10 mt-2">
+          <div className="flex flex-col items-center  mt-2">
             <Button
               onClick={handleSignUp}
               size="lg"
