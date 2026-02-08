@@ -5,7 +5,6 @@ import Header from "@/components/layout/Header";
 import { Dot } from "lucide-react";
 import { useState } from "react";
 import { useForm, SubmitHandler, FieldErrors } from "react-hook-form";
-import signUp from "@/assets/signUp.png";
 import registerImg from "@/assets/register.png";
 import Image from "next/image";
 
