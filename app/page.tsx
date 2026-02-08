@@ -44,7 +44,7 @@ const Login = () => {
             <Button
               onClick={handleSignIn}
               size="lg"
-              className="mt-8 border bg-transparent w-full border-blue-500 hover:shadow text-gray-600 hover:border-blue-600 hover:bg-transparent px-6 py-3 rounded-md "
+              className="mt-8 border bg-transparent w-full border-sky-600 hover:shadow text-gray-600 hover:border-sky-700 hover:bg-transparent px-6 py-3 rounded-md "
             >
               Sign In
             </Button>

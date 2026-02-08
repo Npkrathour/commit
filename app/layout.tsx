@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Nunito, Work_Sans, Inter } from "next/font/google";
 import "./globals.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -34,7 +36,17 @@ export default function RootLayout({
         className={`${nunito.variable} ${work.variable} ${inter.variable} antialiased`}
       >
         {children}
-        
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </body>
     </html>
   );
