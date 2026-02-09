@@ -29,12 +29,15 @@ const UserProfile = () => {
     fetchUserProfile();
   }, []);
 
-  if (loading) {
-    return <p className="p-4">Loading...</p>;
-  }
+  // 🔑 Redirect AFTER loading, inside effect
+  useEffect(() => {
+    if (!loading && !user) {
+      router.replace 
+    }
+  }, [loading, user, router]);
 
-  if (!user) {
-    return null;
+  if (loading || !user) {
+    return <p className="p-4">Loading...</p>;
   }
 
   return (

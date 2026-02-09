@@ -38,7 +38,7 @@ const SignInForm = () => {
         expiresInMins: 30,
       });
       toast.success("Login successful!");
-      router.push("/dashboard");
+      router.replace("/user-profile");
 
       localStorage.setItem(
         "auth",
