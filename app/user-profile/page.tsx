@@ -18,7 +18,6 @@ const UserProfile = () => {
       } catch (error: any) {
         if (error.response?.status === 401) {
           setUser(null);
-          // router.push("/login");
         } else {
           console.error(error);
         }
@@ -30,14 +29,15 @@ const UserProfile = () => {
     fetchUserProfile();
   }, []);
 
-  // 1️⃣ Loading state (NO BackgroundDecor)
-  if (loading) {
-    return <p className="p-4">Loading...</p>;
-  }
+  // 🔑 Redirect AFTER loading, inside effect
+  useEffect(() => {
+    if (!loading && !user) {
+      router.replace 
+    }
+  }, [loading, user, router]);
 
-  // 2️⃣ Not authenticated
-  if (!user) {
-    return null; // or redirect
+  if (loading || !user) {
+    return <p className="p-4">Loading...</p>;
   }
 
   return (
