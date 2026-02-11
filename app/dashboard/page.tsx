@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "@/components/layout/Footer";
 import BackgroundDecor from "@/components/layout/BackgroundDecor";
 
 const Dashboard = () => {
@@ -10,7 +9,6 @@ const Dashboard = () => {
           Welcome to the Dashboard
         </h1>
       </div>
-      <Footer />
     </BackgroundDecor>
   );
 };

@@ -37,8 +37,9 @@ const SignInForm = () => {
         password: data.password,
         expiresInMins: 30,
       });
-      toast.success("Login successful!");
-      router.replace("/user-profile");
+
+      // Store token in cookie for middleware access
+      document.cookie = `accessToken=${response.data.accessToken}; path=/; max-age=${30 * 60}; SameSite=Strict`;
 
       localStorage.setItem(
         "auth",
@@ -48,14 +49,52 @@ const SignInForm = () => {
           user: response.data.user,
         }),
       );
+
+      toast.success("Login successful!");
       console.log("Login success:", response.data);
+
+      // Force hard navigation to ensure middleware picks up the cookie
+      window.location.href = "/user-profile";
     } catch (err) {
       setError("Invalid username or password");
       console.error(err);
-    } finally {
       setLoading(false);
     }
   };
+
+  if (loading) {
+    return (
+      <BackgroundDecor>
+        <div className="flex flex-col justify-center items-center w-full h-screen">
+          <div className="w-full max-w-sm space-y-6 animate-pulse">
+            {/* Image skeleton */}
+            <div className="w-60 h-60 mx-auto bg-gray-200 rounded-full"></div>
+
+            {/* Title skeleton */}
+            <div className="h-8 bg-gray-200 rounded w-48 mx-auto"></div>
+
+            {/* Form skeleton */}
+            <div className="space-y-4">
+              <div>
+                <div className="h-4 bg-gray-200 rounded w-16 mb-2"></div>
+                <div className="h-10 bg-gray-200 rounded w-full"></div>
+              </div>
+              <div>
+                <div className="h-4 bg-gray-200 rounded w-20 mb-2"></div>
+                <div className="h-10 bg-gray-200 rounded w-full"></div>
+              </div>
+              <div className="h-12 bg-gray-300 rounded w-full mt-4"></div>
+            </div>
+
+            {/* Loading text */}
+            <p className="text-center text-gray-500 text-sm">
+              Signing you in...
+            </p>
+          </div>
+        </div>
+      </BackgroundDecor>
+    );
+  }
 
   return (
     <BackgroundDecor>
