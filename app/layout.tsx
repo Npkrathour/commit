@@ -3,6 +3,7 @@ import { Nunito, Work_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AuthenticatedLayout from "@/components/layout/AuthenticatedLayout";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -35,7 +36,7 @@ export default function RootLayout({
       <body
         className={`${nunito.variable} ${work.variable} ${inter.variable} antialiased`}
       >
-        {children}
+        <AuthenticatedLayout>{children}</AuthenticatedLayout>
         <ToastContainer
           position="top-right"
           autoClose={5000}
