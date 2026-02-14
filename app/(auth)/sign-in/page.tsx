@@ -98,7 +98,7 @@ const SignInForm = () => {
 
   return (
     <BackgroundDecor>
-      <Header className="absolute top-10 md:left-6 left-0" />
+      {/* <Header className="absolute top-10 md:left-6 left-0" /> */}
       <div className="flex flex-col justify-center items-center w-full h-screen">
         <div className="w-full">
           <Image

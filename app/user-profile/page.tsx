@@ -24,6 +24,7 @@ const UserProfile = () => {
       try {
         const response = await axiosInstance.get("/auth/me");
         setUser(response.data);
+        console.log("User profile fetched:", response.data);
       } catch (error: any) {
         if (error.response?.status === 401) {
           setUser(null);
@@ -90,22 +91,38 @@ const UserProfile = () => {
 
   return (
     <BackgroundDecor>
-      <div className="p-4 min-h-screen pb-20">
-        <div className="flex justify-between items-center mb-4">
-          <h1 className="text-2xl font-bold">User Profile</h1>
+      <div className="p-4 my-2  glass-card rounded-lg ">
+        <div className="flex flex-col justify-center items-center gap-1">
+          <img
+            className="w-20 h-20 rounded-full object-cover border border-gray-200"
+            src={user.image || ""}
+            alt="Profile Image"
+          />
+          <p className="text-sm font-semibold pt-0">{user.firstName}</p>
+          <p>{user.email}</p>
+        </div>
+      </div>
+      <div className="my-2  h-32 backdrop-blur-xs border border-blue-400 rounded-lg ">
+        <div className="p-2">
+          <h2 className="text-lg font-semibold">User Details</h2>
+          <p>
+            <span className="font-medium">First Name:</span> {user.firstName}
+          </p>
+          <p>
+            <span className="font-medium">Last Name:</span> {user.lastName}
+          </p>
+          <p>
+            <span className="font-medium">Email:</span> {user.email}
+          </p>
+        </div>
+        <div className="p-2 mt-3">
           <button
             onClick={handleLogout}
-            className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
+            className="w-full bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition-colors"
           >
             Logout
           </button>
         </div>
-        <p>
-          <strong>Name:</strong> {user.name}
-        </p>
-        <p>
-          <strong>Email:</strong> {user.email}
-        </p>
       </div>
     </BackgroundDecor>
   );
